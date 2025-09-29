@@ -1049,7 +1049,7 @@ void WindowManager::SetBrightness(const flutter::EncodableMap& args) {
     std::string brightness =
         std::get<std::string>(args.at(flutter::EncodableValue("brightness")));
     HWND hWnd = GetMainWindow();
-    BOOL enable_dark_mode = light_mode == 0 && brightness == "dark";
+    BOOL enable_dark_mode = brightness == "dark";
     DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE,
                           &enable_dark_mode, sizeof(enable_dark_mode));
   }
